@@ -44,7 +44,8 @@ const subtitleLocales = {
 	Chinese: 'zh-Hans',
 	TraditionalChinese: 'zh-Hant',
 	Japanese: 'ja',
-	Korean: 'ko'
+	Korean: 'ko',
+	Thai: 'th'
 };
 let isVoicelinePlaying = false;
 
@@ -61,17 +62,18 @@ const AUDIO_DETAIL = [
                 "あのね？こう見えても私、結構信頼してるんだよ？先生のこと。"
             ],
             English: [
-                "You know what? Even if I don't look it, I actually trust you quite a lot, Sensei."
+                "You know? Despite everything... ...I trust you a lot, Sensei."
             ],
             Chinese: [
                 "我跟你说哦？虽然看不太出来，但我其实非常信任老师你呢。"
             ],
             TraditionalChinese: [
-                "我跟你說哦？雖然看不太出來，但我其實非常信任老師你呢。"
+                "你知道嗎？別看我這樣……其實還挺信任老師的哦？"
             ],
             Korean: [
-                "내가 그렇게 보이지 않더라도, 나는 당신을 아주 많이 신뢰합니다."
-            ]
+                "있지? 나 이래 봬도 꽤 신뢰하고 있다고? 선생님 말야."
+            ],
+            Thai: ["รู้หรือเปล่า? เห็นเค้าอย่างนี้ เค้าก็เชื่อใจมากเลยนะ เชื่อใจคุณครูน่ะ"]
         }
     },
     {
@@ -81,21 +83,22 @@ const AUDIO_DETAIL = [
                 "くふふっ。私だって誰彼構わずやるわけじゃないって。"
             ],
             English: [
-                "Eh, are you surprised? ...Is it because I'm always playing pranks on you?",
-                "Kufufu. Come on, it's not like I do that to just anybody."
+                "Eh? That was surprising? Because I'm pulling pranks all the time?",
+                "Kufufu. I don't say this to just anyone."
             ],
             Chinese: [
                 "诶，很意外吗？……因为我总是对你恶作剧？",
                 "库呼呼。我呀，也不是随随便便会对任何人做那种事的啦。"
             ],
             TraditionalChinese: [
-                "誒，很意外嗎？……因為我總是對你惡作劇？",
-                "庫呼呼。我呀，也不是隨隨便便會對任何人做那種事的啦。"
+                "咦，很意外？……因為我總是在惡作劇嗎？",
+                "咯呵呵。我也不是對誰都會這樣的哦。"
             ],
             Korean: [
-                "내가 항상 너한테 장난을 치기 때문이냐?",
-                "쿠푸푸, 난 그냥 누구에게도 그런 짓을 하지 않아."
-            ]
+                "에, 의외? 언제나 장난만 치고 있으니까?",
+                "쿠후후. 나라고 아무한테나 이러는 건 아니라고."
+            ],
+            Thai: ["เอ๋ คาดไม่ถึงเหรอ? เพราะเค้าเอาแต่ แกล้งเล่นอยู่ตลอดงั้นเหรอ?","ฮุฮุฮุ เค้าก็ไม่ได้เป็นแบบนี้ กับทุกคนหรอกนะ"]
         }
     },
     {
@@ -106,9 +109,9 @@ const AUDIO_DETAIL = [
                 "どっかに寄付してもいいし、先生の活動資金にしてもいいし……。"
             ],
             English: [
-                "Well, that's why... I'll leave it up to you to decide what to do with that money.",
-                "Knowing you, you'll use it for something meaningful, right?",
-                "You could donate it somewhere, or use it as your own activity funds..."
+                "That's why... I'll leave it up to you, what to do with the money.",
+                "You of all people will put it to good use.",
+                "You can donate it... ...or even use it to fund your hobbies."
             ],
             Chinese: [
                 "嘛，所以说……这笔钱要怎么处理，就全凭你决定啦。",
@@ -116,15 +119,16 @@ const AUDIO_DETAIL = [
                 "捐给哪里也好，当作老师自己的活动资金也行……"
             ],
             TraditionalChinese: [
-                "嘛，所以說……這筆錢要怎麼處理，就全憑你決定啦。",
-                "如果是老師的話，一定會把它用在真正有意義的地方吧？",
-                "捐給哪裡也好，當作老師自己的活動資金也行……"
+                "嗯，總之……那筆錢要怎麼處理，就交給你決定了。",
+                "如果是老師，一定會用在有意義的地方吧？",
+                "捐去某個地方也行……拿來當作老師的活動資金也可以……"
             ],
             Korean: [
-                "그래서... 그 돈으로 뭘 할지 너한테 맡겨줄게",
-                "당신을 알고 있으면 의미있는 일을 할 수 있겠죠?",
-                "어딘가에서 기부할 수도 있고, 아니면 자신의 활동 자금으로 사용할 수도 있습니다."
-            ]
+                "뭐, 그러니까…… 그 돈을 어떻게 할 건지는 맡길게.",
+                "선생님이라면 분명 의미 있는 곳에 잘 써줄 테니까.",
+                "어딘가 기부를 해도 좋고, 선생님 활동 자금으로 써도 좋아."
+            ],
+            Thai: ["ก็ เอาเป็นว่า... เค้าจะให้ตัดสินใจเองแล้วกัน ว่าจะเอาเงินนั้นไปทำอะไร","ถ้าเป็นคุณครูละก็ ต้องเอาไปใช้ ในทางที่ดีอยู่แล้ว","จะเอาไปบริจาคให้ที่ไหนก็ได้ หรือใช้เป็นทุนทำกิจกรรม ของคุณครูก็ได้เหมือนกัน"]
         }
     },
     {
@@ -134,21 +138,22 @@ const AUDIO_DETAIL = [
                 "私たちの未来のために取っておいても、いいかもね？"
             ],
             English: [
-                "If you don't like those options, you could just keep it safe for now—",
-                "And maybe save it for our future together?"
+                "If none of that appeals to you, just keep it.",
+                "It's never too early to start saving for our future, right?"
             ],
             Chinese: [
                 "要是觉得那些都不好，也可以先由老师存着——",
                 "然后，当作是为了“我们的未来”攒下来的存折，好像也不错呢？"
             ],
             TraditionalChinese: [
-                "要是覺得那些都不好，也可以先由老師存著——",
-                "然後，當作是為了“我們的未來”攢下來的存摺，好像也不錯呢？"
+                "如果都不喜歡的話，就當作是交給老師保管……",
+                "為了我們的未來先存起來，或許也不錯？"
             ],
             Korean: [
-                "이 옵션이 마음에 들지 않는다면, 지금 당장 안전하게 보관할 수 있습니다.",
-                "그리고 어쩌면 우리의 미래를 위해 그것을 저장?"
-            ]
+                "그것도 싫다면, 선생님이 계속 갖고 있는 걸로 하자.",
+                "우리의 미래를 위해 아껴두는 것도, 괜찮잖아?"
+            ],
+            Thai: ["ถ้ายังไม่ชอบ คุณครูก็เก็บติดตัว ไว้ตลอดแล้วกัน","เก็บออมไว้ เพื่ออนาคตของเรา ก็ดีเลยไม่ใช่เหรอ?"]
         }
     },
     {
@@ -157,17 +162,18 @@ const AUDIO_DETAIL = [
                 "え？何を言っているのかって？"
             ],
             English: [
-                "Eh? What do I mean by that?"
+                "Hm? What does that mean?"
             ],
             Chinese: [
                 "诶？问我在胡说什么？"
             ],
             TraditionalChinese: [
-                "誒？問我在胡說什麼？"
+                "咦？問我在說什麼？"
             ],
             Korean: [
-                "무슨 뜻이야?"
-            ]
+                "응? 그게 무슨 뜻이냐고?"
+            ],
+            Thai: ["หืม? หมายความว่ายังไงน่ะเหรอ?"]
         }
     },
     {
@@ -176,17 +182,18 @@ const AUDIO_DETAIL = [
                 "くふふっ！さあ？どういう意味だろうね♪"
             ],
             English: [
-                "Kufufu! Who knows? I wonder what it could mean~♪"
+                "Kufufu! I wonder. What could it mean? ♪"
             ],
             Chinese: [
                 "库呼呼！谁知道呢？到底是什么意思呢~♪"
             ],
             TraditionalChinese: [
-                "庫呼呼！誰知道呢？到底是什麼意思呢~♪"
+                "咯呵呵！不知道耶？是什麼意思呢♪"
             ],
             Korean: [
-                "쿠푸푸, 누가 알겠어?"
-            ]
+                "쿠후훗! 글쎄? 무슨 의미일까나♪"
+            ],
+            Thai: ["ฮุฮุฮุ! ก็ไม่รู้สิ? จะหมายความว่ายังไงน้า♪"]
         }
     }
 ];
@@ -299,7 +306,7 @@ function playVoiceline() {
 			track.play().catch(finish);
 
 			if (dialogBox) {
-				textbox.textContent = dialog[window.selectedLanguage][index];
+				textbox.textContent = getSubtitleText(dialog, window.selectedLanguage, index);
 				textbox.style.opacity = 1;
 			}
 		},
@@ -487,6 +494,16 @@ function setMouse(event) {
 	return { x: ax - canvas.width * positionX, y: ay - canvas.height * positionY };
 }
 
+function getSubtitleText(dialog, language, index) {
+	let text = dialog?.[language]?.[index];
+	if (text == null && language === 'Thai') {
+		language = 'English';
+		text = dialog?.[language]?.[index];
+	}
+	textbox.lang = subtitleLocales[language];
+	return text ?? "";
+}
+
 function updateSubtitleLanguage() {
 	let language = subtitleLanguagePreference;
 	if (language === 'auto') {
@@ -500,6 +517,8 @@ function updateSubtitleLanguage() {
 			language = 'Japanese';
 		} else if (primary === 'ko' || primary === 'korean' || primary === 'koreana') {
 			language = 'Korean';
+		} else if (primary === 'th' || primary === 'thai') {
+			language = 'Thai';
 		} else {
 			language = 'English';
 		}
@@ -509,7 +528,7 @@ function updateSubtitleLanguage() {
 	window.selectedLanguage = language;
 	textbox.lang = subtitleLocales[language];
 	const clip = currentTracks.at(-1);
-	if (dialogBox && clip) textbox.textContent = clip.dialog[language][clip.index];
+	if (dialogBox && clip) textbox.textContent = getSubtitleText(clip.dialog, language, clip.index);
 }
 
 function init() {
